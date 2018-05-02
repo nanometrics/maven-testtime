@@ -10,6 +10,7 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.function.BiConsumer;
@@ -97,6 +98,7 @@ public class TestTimes
       logResults(a -> output.println(a), m_resultsFileLimit);
       output.println(String.format("Processed %d directories and %d files in %.2f s", m_countTestReportDirectories,
           m_countFiles, (m_endTime - m_startTime) / 1000.0));
+      output.println(new Date());
     }
     catch (FileNotFoundException e)
     {

@@ -14,40 +14,32 @@ import org.apache.maven.it.Verifier;
 import org.apache.maven.it.util.ResourceExtractor;
 import org.junit.Test;
 
-public class DisplayTestTimeMojoTest
+public class TestTimeTest
 {
-  private static final String GROUPID = "ca.nanometics.foobar";
-  private static final String VERSION = "1.0";
-  private static final String FOOBAR = "foobar";
-  private static final String BAR = "bar";
-  private static final String FOO = "foo";
-  private static final String JAR = "jar";
-  private static final String POM = "pom";
-
   @Test
   public void testBasics() throws Exception
   {
-    File projectDir = ResourceExtractor.simpleExtractResources(getClass(), "/multi-module-project");
+    File destination = new File("target/test-projects");
+    File projectDir = ResourceExtractor.extractResourcePath(getClass(), "/multi-module-project", destination, true);
+    System.out.println(projectDir.getAbsolutePath());
     assertThat(projectDir, is(notNullValue()));
     assertThat(projectDir.exists(), is(true));
 
     Verifier verifier = new Verifier(projectDir.getAbsolutePath());
 
-    verifier.deleteArtifact(GROUPID, FOOBAR, VERSION, POM);
-    verifier.deleteArtifact(GROUPID, FOOBAR, VERSION, JAR);
-    verifier.deleteArtifact(GROUPID, FOO, VERSION, POM);
-    verifier.deleteArtifact(GROUPID, FOO, VERSION, JAR);
-    verifier.deleteArtifact(GROUPID, BAR, VERSION, POM);
-    verifier.deleteArtifact(GROUPID, BAR, VERSION, JAR);
-
-    // verifier.setAutoclean(false);
     List<String> cliOptions = new ArrayList<>();
-    cliOptions.add("-Dmaven.repo.local=" + new File(projectDir, "localrepo").getAbsolutePath());
+
+    File localRepo = new File(destination, "local-repo");
+    localRepo.mkdirs();
+    cliOptions.add("-Dmaven.repo.local=\"" + localRepo.getAbsolutePath() + "\"");
+    cliOptions.add("-X");
     verifier.setCliOptions(cliOptions);
-    verifier.executeGoal("install");
+    verifier.setDebug(true);
+    verifier.executeGoal("verify");
 
     verifier.verifyErrorFreeLog();
     verifier.verifyTextInLog("Slowest test times for all modules written to");
+    verifier.resetStreams();
 
     File outputDir = new File(verifier.getBasedir(), "target");
     assertThat(outputDir.toString(), outputDir, is(anExistingDirectory()));
