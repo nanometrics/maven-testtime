@@ -1,0 +1,5 @@
+*.launch
+target
+.settings
+.classpath
+.project
