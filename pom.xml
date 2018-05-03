@@ -7,6 +7,7 @@
   <packaging>pom</packaging>
   <name>${project.groupId}:${project.artifactId}</name>
   <description>Tools to display how long tests took to run</description>
+  <url>https://github.com/nanometrics/maven-testtime</url>
   <licenses>
     <license>
       <name>The Apache License, Version 2.0</name>
