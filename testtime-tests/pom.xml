@@ -13,7 +13,7 @@
   <build>
     <testResources>
       <testResource>
-        <filtering>false</filtering>
+        <filtering>true</filtering>
         <directory>src/test/test-projects</directory>
         <includes>
           <include>**/*.java</include>

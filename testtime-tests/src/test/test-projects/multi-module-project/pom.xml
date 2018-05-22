@@ -31,7 +31,7 @@
       <plugin>
         <groupId>ca.nanometrics.maven.plugins</groupId>
         <artifactId>testtime-maven-plugin</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>${project.version}</version>
         <executions>
           <execution>
             <goals>
@@ -74,7 +74,7 @@
       <extension>
         <groupId>ca.nanometrics.maven.plugins</groupId>
         <artifactId>testtime-maven-extension</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>${project.version}</version>
       </extension>
     </extensions>
   </build>

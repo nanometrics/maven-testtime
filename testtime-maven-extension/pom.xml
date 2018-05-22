@@ -7,7 +7,7 @@
     <version>1.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>testtime-maven-extension</artifactId>
-  <name>${project.groupId}:${project.artifactId}</name>
+  <name>ca.nanometrics.maven.plugins:testtime-maven-extension</name>
   <description>Maven extension to display how long tests took to run for an entire reactor</description>
   <dependencies>
     <dependency>
