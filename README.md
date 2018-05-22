@@ -1,6 +1,7 @@
 TestTime consists of a maven plugin and extension that show the top N slowest unit tests and suites.
 
 [![Build Status](https://travis-ci.com/nanometrics/maven-testtime.svg?branch=develop)](https://travis-ci.com/nanometrics/maven-testtime)
+![Maven Central](https://img.shields.io/maven-central/v/ca.nanometrics.maven.plugins/maven-testtime-parent.svg)
 
 # Single Module Projects
 
