@@ -4,13 +4,13 @@ TestTime consists of a maven plugin and extension that show the top N slowest un
 
 # Single Module Projects
 
-For single module builds, use the plugin. It will display the 5 slowest suites and tests in the log 
-after the test phase, and it will create a `testtimes.txt` file in the `target` directory 
+For single module builds, use the plugin. It will display the 5 slowest suites and tests in the log
+after the test phase, and it will create a `testtimes.txt` file in the `target` directory
 with the 20 slowest.
 
 ```
   <build>
-    <plugins>      
+    <plugins>
       <plugin>
         <groupId>ca.nanometrics.maven.plugins</groupId>
         <artifactId>maven-testtime-plugin</artifactId>
@@ -23,19 +23,19 @@ with the 20 slowest.
           </execution>
         </executions>
       </plugin>
-    </plugins>      
+    </plugins>
   </build>
 ```
 
 # Multi-Module Projects
 
-For multi-module builds, you can use the extension to get a single `testtimes.txt` file in the top level 
+For multi-module builds, you can use the extension to get a single `testtimes.txt` file in the top level
 project `target` directory, if you want.
 
 In the top-level pom, put:
 
 ```
-  <build>      
+  <build>
     <extensions>
       <extension>
         <groupId>ca.nanometrics.maven.plugins</groupId>
@@ -57,8 +57,3 @@ There are 2 system properties to control the number of results that are shown.
 
 e.g. `mvn -Dtesttime.loglimit=10 install`
 
-
-To use the plugin, add the following to the POM:
-
-      
-      
