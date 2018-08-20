@@ -17,7 +17,7 @@ with the 20 slowest.
     <plugins>
       <plugin>
         <groupId>ca.nanometrics.maven.plugins</groupId>
-        <artifactId>maven-testtime-plugin</artifactId>
+        <artifactId>testtime-maven-plugin</artifactId>
         <version>1.0.0</version>
         <executions>
           <execution>
