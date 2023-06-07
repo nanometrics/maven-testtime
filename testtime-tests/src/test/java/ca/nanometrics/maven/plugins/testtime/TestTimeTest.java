@@ -14,13 +14,13 @@ import org.apache.maven.it.Verifier;
 import org.apache.maven.it.util.ResourceExtractor;
 import org.junit.Test;
 
-public class TestTimeTest
-{
+public class TestTimeTest {
   @Test
-  public void testBasics() throws Exception
-  {
+  public void testBasics() throws Exception {
     File destination = new File("target/test-projects");
-    File projectDir = ResourceExtractor.extractResourcePath(getClass(), "/multi-module-project", destination, true);
+    File projectDir =
+        ResourceExtractor.extractResourcePath(
+            getClass(), "/multi-module-project", destination, true);
     System.out.println(projectDir.getAbsolutePath());
     assertThat(projectDir, is(notNullValue()));
     assertThat(projectDir.exists(), is(true));

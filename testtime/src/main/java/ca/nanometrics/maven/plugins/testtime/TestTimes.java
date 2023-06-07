@@ -19,6 +19,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+/**
+ * A helper class to keep track of test times during the maven lifecycle
+ */
 public class TestTimes
 {
   public static final String LOG_LIMIT_PROPERTY = "testtime.loglimit";
@@ -51,7 +54,7 @@ public class TestTimes
     m_directoriesToSearch = directoriesToSearch;
   }
 
-  public void processBuildDirectories(Path outputFolder, Collection<String> buildDirectories)
+  void processBuildDirectories(Path outputFolder, Collection<String> buildDirectories)
   {
     m_startTime = System.currentTimeMillis();
     List<Path> pathsToSearch = m_directoriesToSearch.stream().map(Paths::get).collect(Collectors.toList());
